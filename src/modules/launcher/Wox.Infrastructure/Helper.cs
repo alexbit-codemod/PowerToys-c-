@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation
+﻿// Copyright (c) Microsoft Corporation
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -36,12 +36,22 @@ namespace Wox.Infrastructure
         /// </summary>
         public static T NonNull<T>(this T obj)
         {
-            ArgumentNullException.ThrowIfNull(obj);
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+            else
+            {
+                return obj;
+            }
         }
 
         public static void RequireNonNull<T>(this T obj)
         {
-            ArgumentNullException.ThrowIfNull(obj);
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
         }
 
         public static void ValidateDataDirectory(string bundledDataDirectory, string dataDirectory)

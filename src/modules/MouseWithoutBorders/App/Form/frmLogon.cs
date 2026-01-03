@@ -1,4 +1,4 @@
-/*
+﻿/*
  * File name: frmLogon.cs (not used)
  * History:
  *  Truong Do (ductdo) 2008-10-XX Created/Updated

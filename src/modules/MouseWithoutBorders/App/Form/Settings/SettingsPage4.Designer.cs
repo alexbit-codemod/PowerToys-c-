@@ -1,4 +1,4 @@
-namespace MouseWithoutBorders
+﻿namespace MouseWithoutBorders
 {
     partial class SettingsPage4
     {

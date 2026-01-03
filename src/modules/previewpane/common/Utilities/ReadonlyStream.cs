@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation
+﻿// Copyright (c) Microsoft Corporation
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -106,7 +106,10 @@ namespace Common.Utilities
         {
             CheckDisposed();
 
-            ArgumentNullException.ThrowIfNull(buffer);
+            if (buffer == null)
+            {
+                throw new ArgumentNullException(nameof(buffer), "buffer is null");
+            }
 
             if (offset < 0 || count < 0 || (offset + count) > buffer.Length)
             {

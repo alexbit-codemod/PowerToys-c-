@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation
+﻿// Copyright (c) Microsoft Corporation
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -194,7 +194,14 @@ namespace MouseWithoutBorders.Class
         // Fails and return false if the machine pool is already full.
         public bool LearnMachine(string machineName)
         {
-            ArgumentNullException.ThrowIfNull(machineName);
+            if (machineName == null)
+            {
+                throw new ArgumentNullException(machineName);
+            }
+            else if (string.IsNullOrEmpty(machineName.Trim()))
+            {
+                throw new ArgumentException(machineName);
+            }
 
             lock (@lock)
             {

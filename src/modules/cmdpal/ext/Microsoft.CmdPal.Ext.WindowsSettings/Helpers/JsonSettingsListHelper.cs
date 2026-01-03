@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation
+﻿// Copyright (c) Microsoft Corporation
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -42,7 +42,10 @@ internal static class JsonSettingsListHelper
         {
             var resourceName = $"{_extTypeNamespace}.{_settingsFile}";
             using var stream = assembly.GetManifestResourceStream(resourceName);
-            ArgumentNullException.ThrowIfNull(stream);
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream), "stream is null");
+            }
 
             var options = _serializerOptions;
 
