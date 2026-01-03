@@ -42,10 +42,7 @@ namespace Microsoft.PowerToys.Run.Plugin.WindowsSettings.Helper
             {
                 var resourceName = $"{type?.Namespace}.{_settingsFile}";
                 using var stream = assembly.GetManifestResourceStream(resourceName);
-                if (stream is null)
-                {
-                    throw new ArgumentNullException(nameof(stream), "stream is null");
-                }
+                ArgumentNullException.ThrowIfNull(stream);
 
                 var options = _serializerOptions;
                 options.Converters.Add(new JsonStringEnumConverter());
