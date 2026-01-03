@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft Corporation
+// Copyright (c) Microsoft Corporation
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -47,10 +47,7 @@ namespace Community.PowerToys.Run.Plugin.ValueGenerator.GUID
 
             if (version is 3 or 5)
             {
-                if (guidNamespace == null)
-                {
-                    throw new ArgumentNullException(null, NullNamespaceError);
-                }
+                ArgumentNullException.ThrowIfNull(guidNamespace);
 
                 if (GUIDGenerator.PredefinedNamespaces.TryGetValue(guidNamespace.ToLowerInvariant(), out Guid guid))
                 {
@@ -65,14 +62,7 @@ namespace Community.PowerToys.Run.Plugin.ValueGenerator.GUID
                     throw new ArgumentNullException(null, NullNamespaceError);
                 }
 
-                if (name == null)
-                {
-                    throw new ArgumentNullException(nameof(name));
-                }
-                else
-                {
-                    GuidName = name;
-                }
+                ArgumentNullException.ThrowIfNull(name);
             }
             else
             {
