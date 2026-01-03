@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft Corporation
+// Copyright (c) Microsoft Corporation
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -32,10 +32,7 @@ namespace Microsoft.PowerToys.Settings.UI.Library
         public ImageResizerProperties(Func<string, string> resourceLoader)
             : this()
         {
-            if (resourceLoader == null)
-            {
-                throw new ArgumentNullException(nameof(resourceLoader), "Resource loader is null");
-            }
+            ArgumentNullException.ThrowIfNull(resourceLoader);
 
             ImageresizerSizes = new ImageResizerSizes(new ObservableCollection<ImageSize>()
             {

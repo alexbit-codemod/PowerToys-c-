@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft Corporation
+// Copyright (c) Microsoft Corporation
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -21,10 +21,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         public PowerLauncherPluginViewModel(PowerLauncherPluginSettings settings, Func<bool> isDark)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings), "PowerLauncherPluginSettings object is null");
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             this.settings = settings;
             this.isDark = isDark;

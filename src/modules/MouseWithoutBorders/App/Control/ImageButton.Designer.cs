@@ -1,4 +1,4 @@
-﻿namespace MouseWithoutBorders
+namespace MouseWithoutBorders
 {
     partial class ImageButton
     {

@@ -18,10 +18,7 @@ internal abstract class AssociationProviderBase : IDefaultBrowserProvider
     public BrowserInfo GetDefaultBrowserInfo()
     {
         var appAssociation = FindAssociation();
-        if (appAssociation is null)
-        {
-            throw new ArgumentNullException(nameof(appAssociation), "Could not determine default browser application.");
-        }
+        ArgumentNullException.ThrowIfNull(appAssociation);
 
         var commandPattern = appAssociation.Command;
         var appAndArgs = SplitAppAndArgs(commandPattern);
