@@ -194,14 +194,7 @@ namespace MouseWithoutBorders.Class
         // Fails and return false if the machine pool is already full.
         public bool LearnMachine(string machineName)
         {
-            if (machineName == null)
-            {
-                throw new ArgumentNullException(machineName);
-            }
-            else if (string.IsNullOrEmpty(machineName.Trim()))
-            {
-                throw new ArgumentException(machineName);
-            }
+            ArgumentNullException.ThrowIfNull(machineName);
 
             lock (@lock)
             {

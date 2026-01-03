@@ -106,10 +106,7 @@ namespace Common.Utilities
         {
             CheckDisposed();
 
-            if (buffer == null)
-            {
-                throw new ArgumentNullException(nameof(buffer), "buffer is null");
-            }
+            ArgumentNullException.ThrowIfNull(buffer);
 
             if (offset < 0 || count < 0 || (offset + count) > buffer.Length)
             {

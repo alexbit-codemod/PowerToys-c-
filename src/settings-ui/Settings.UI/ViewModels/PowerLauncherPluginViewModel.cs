@@ -21,10 +21,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         public PowerLauncherPluginViewModel(PowerLauncherPluginSettings settings, Func<bool> isDark)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings), "PowerLauncherPluginSettings object is null");
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             this.settings = settings;
             this.isDark = isDark;

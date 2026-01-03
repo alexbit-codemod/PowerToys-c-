@@ -16,14 +16,7 @@ namespace Wox.Plugin
         /// </summary>
         public static string NonNull(this string obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException(nameof(obj));
-            }
-            else
-            {
-                return obj;
-            }
+            ArgumentNullException.ThrowIfNull(obj);
         }
 
         private static readonly IFileSystem FileSystem = new FileSystem();

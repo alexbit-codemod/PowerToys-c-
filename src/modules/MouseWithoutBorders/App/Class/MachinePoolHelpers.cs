@@ -15,10 +15,7 @@ namespace MouseWithoutBorders.Class
 
         internal static MachineInf[] LoadMachineInfoFromMachinePoolStringSetting(string s)
         {
-            if (s == null)
-            {
-                throw new ArgumentNullException(s);
-            }
+            ArgumentNullException.ThrowIfNull(s);
 
             string[] st = s.Split(Comma);
 
